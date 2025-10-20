@@ -149,7 +149,7 @@ grok_key = None
 
 if provider == "Gemini":
     gemini_key = st.sidebar.text_input("Gemini API Key", type="password", key="gemini_key")
-    gemini_model = st.sidebar.selectbox("Gemini Model", ["gemini-2.0-flash-exp", "gemini-1.5-flash"])
+    gemini_model = st.sidebar.selectbox("Gemini Model", ["gemini-2.5-flash", "gemini-2.5-flash-lite"])
     if gemini_key:
         try:
             import google.generativeai as genai
@@ -159,7 +159,7 @@ if provider == "Gemini":
             st.sidebar.error(f"Gemini SDK error: {e}")
 elif provider == "OpenAI":
     openai_key = st.sidebar.text_input("OpenAI API Key", type="password", key="openai_key")
-    openai_model = st.sidebar.selectbox("OpenAI Model", ["gpt-4o", "gpt-4o-mini"])
+    openai_model = st.sidebar.selectbox("OpenAI Model", ["gpt-5-nano", "gpt-4o-mini", "gpt-4.1-mini"])
     if openai_key:
         try:
             import openai
@@ -169,7 +169,7 @@ elif provider == "OpenAI":
             st.sidebar.error(f"OpenAI SDK error: {e}")
 else:
     grok_key = st.sidebar.text_input("Grok API Key", type="password", key="grok_key")
-    grok_model = st.sidebar.selectbox("Grok Model", ["grok-beta", "grok-vision-beta"])
+    grok_model = st.sidebar.selectbox("Grok Model", ["grok-4-fast-reasoning", "grok-3-mini"])
 
 # Theme for graph
 st.sidebar.subheader("🎨 Theme & Colors")
